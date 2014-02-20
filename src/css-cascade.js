@@ -73,7 +73,7 @@ var cssCascade = {
         var results = [];
         
         // walk the whole stylesheet...
-        function visit(rules) {
+        var visit = function(rules) {
             for(var r = rules.length; r--; ) {
                 var rule = rules[r]; 
                 
@@ -96,7 +96,7 @@ var cssCascade = {
                             else if(element.mozMatchesSelector) isMatching=element.mozMatchesSelector(selector)
                             else if(element.webkitMatchesSelector) isMatching=element.webkitMatchesSelector(selector)
                             else { throw new Error("wft u no element.matchesSelector?") }
-                        } catch(ex) { debugger; setImmediate(function() { throw ex; }) }
+                        } catch(ex) { cssConsole.log("Invalid selector " + selector); }
                         
                         if(isMatching) { results.push(subrules[sr]); }
                         
@@ -128,7 +128,7 @@ var cssCascade = {
         var results = [];
         
         // walk the whole stylesheet...
-        function visit(rules) {
+        var visit = function(rules) {
             for(var r = rules.length; r--; ) {
                 var rule = rules[r]; 
                 
@@ -340,7 +340,7 @@ var cssCascade = {
                 : cssCascade.findAllMatchingRules(element)
             );
             
-            function visit(rules) {
+            var visit = function(rules) {
                 
                 for(var i=rules.length; i--; ) {
                     

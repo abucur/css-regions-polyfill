@@ -612,5 +612,3 @@ cssRegions.enablePolyfillObjectModel = function() {
     cssCascade.polyfillStyleInterface('break-after');
 
 }
-
-cssRegions.enablePolyfill();
